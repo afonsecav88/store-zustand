@@ -67,12 +67,22 @@ export const PandaBear = () => {
 export const BearDisplay = () => {
   const bears = useBearStore(useShallow((state) => state.bears));
   const doNothing = useBearStore((state) => state.doNothing);
+  const addBears = useBearStore((state) => state.addBears);
+  const clearsBears = useBearStore((state) => state.clearsBears);
 
   return (
     <WhiteCard>
       <h1>Osos</h1>
+      <button onClick={doNothing}> No hace nada</button>
+      <button className="mt-2" onClick={addBears}>
+        {' '}
+        Agregar Oso
+      </button>
+      <button className="mt-2" onClick={clearsBears}>
+        {' '}
+        Borrar Osos
+      </button>
       <pre>{JSON.stringify(bears, null, 2)}</pre>
-      <button onClick={doNothing}> Do Nothing</button>
     </WhiteCard>
   );
 };
